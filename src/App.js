@@ -1,5 +1,5 @@
 import './App.css';
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 function App() {
     const [count, setCount] = useState(0);
 
@@ -12,7 +12,11 @@ function App() {
     const resetHandler = () => {
         setCount(0);
     }
+    useEffect(() => {
+        // useEffect runs on render and also when state of dependency changes eg. when count changes
+        console.log("run with render");
 
+    }, [count]);
 
     return (
         <div className="App">
